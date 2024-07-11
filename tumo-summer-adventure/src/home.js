@@ -21,7 +21,7 @@ function Home() {
   };
 
   const fetchLlmResponse = async (content) => {
-    const TOKEN = process.env.REACT_APP_OPENAI_API_KEY; // Replace with your actual OpenAI API token
+    const TOKEN = "Token"; // Replace with your actual OpenAI API token
 
     const url = 'https://api.openai.com/v1/chat/completions';
     const requestBody = {

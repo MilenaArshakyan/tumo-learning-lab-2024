@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const Itinerary = () => {
+const PackingList = () => {
   const location = useLocation();
-  const { itinerary, travelers, location: destination, duration } = location.state || { itinerary: 'No itinerary provided' };
+  const { packingList, travelers, location: destination, duration } = location.state || { packingList: 'No packing list provided' };
   const navigate = useNavigate();
 
   const fetchLlmResponse = async (content) => {
@@ -39,20 +39,16 @@ const Itinerary = () => {
     }
   };
 
-  const handleGeneratePackingList = async () => {
-    const content = `Provide a packing list for a holiday itinerary for ${travelers} going to ${destination} for the duration of ${duration}`;
+  const handleGenerateItinerary = async () => {
+    const content = `Design a holiday itinerary for ${travelers} going to ${destination} for the duration of ${duration}`;
     const response = await fetchLlmResponse(content);
-    navigate('/packing-list', { state: { packingList: response, travelers, location: destination, duration } });
+    navigate('/itinerary', { state: { itinerary: response, travelers, location: destination, duration } });
   };
 
-  // const handleGenerateItinerary = async () => {
-  //   const content = `Design a holiday itinerary for ${travelers} going to ${destination} for the duration of ${duration}`;
-  //   const response = await fetchLlmResponse(content);
-  //   navigate('/itinerary', { state: { itinerary: response, travelers, location: destination, duration } });
-  // };
+  const dayRangeRegex = /^\d+\./gm;
 
-  const days = itinerary.split('Day');
-
+  const numbers = packingList.split(dayRangeRegex);
+  
   return (
     <div className="App">
       <header className="header">
@@ -71,25 +67,20 @@ const Itinerary = () => {
 
       <main className="p-i-main">
         <div className='title-it-pl'>
-          <h3>Your Itinerary</h3>
+          <h3>Packing List</h3>
         </div>
-        {/* <div className="generate-text">
-          <p>{itinerary}</p>
-        </div> */}
 
-          {days.map((day, index) => (
+          {numbers.map((day, index) => (
             day.trim() && (
               <div key={index} className="day-container">
-                {/* <h4>Day {index}</h4> */}
                 <p>{day.trim()}</p>
               </div>
             )
           ))}
 
-
         <div className="button-section">
           <Link to="/" className="main-button">Generate again</Link>
-          <button className="main-button" onClick={handleGeneratePackingList}>Packing List</button>
+          <button className="main-button" onClick={handleGenerateItinerary}>Itinerary</button>
         </div>
       </main>
 
@@ -100,5 +91,4 @@ const Itinerary = () => {
   );
 };
 
-export default Itinerary;
-
+export default PackingList;

@@ -123,6 +123,7 @@
   border: none;
   width: 60%;
   margin-left: 20px;
+  outline-color: #FFA7A1;
 }
 
 .button-section {
@@ -242,6 +243,9 @@
   width: 95%;
   height: 95%;
   border: none;
+  outline-color: #ffa7a1;
+  padding: 20px;
+  text-align: center;
 }
 
 .contact .send-button-div {
@@ -308,4 +312,89 @@
 
 
 
+/* ---- media ---- */
 
+@media (max-width: 1347px) {
+  /* .info-contact {
+    display: flex;
+    padding: 0px;
+    width: 30%;
+    padding-left: 15%;
+    text-decoration: none;
+  }
+  
+  .button {
+    width: 100%;
+    align-items: flex-end;
+  }
+   */
+  .info-button {
+    background-color: #F1AB86;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .button-section {
+    padding-top: 4%;
+    padding-bottom: 4%;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+  
+  .main-button {
+    background-color: #F1AB86;
+    width: 25%;
+    border: none;
+    padding: 15px 30px;
+    margin: 0 30px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .label-div label {
+    font-size: 22px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 1310px) {
+
+  .label-div label {
+    font-size: 20px;
+    margin-right: 18px;
+  }
+}
+
+@media (max-width: 1174px) {
+
+  .label-div label {
+    font-size: 16px;
+    margin-right: 18px;
+  }
+
+  .info-button {
+    background-color: #F1AB86;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+  }
+}

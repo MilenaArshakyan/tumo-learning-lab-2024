@@ -8,7 +8,7 @@ const PackingList = () => {
   const navigate = useNavigate();
 
   const fetchLlmResponse = async (content) => {
-    const TOKEN = "Token"; // Replace with your actual OpenAI API token
+    const TOKEN = 'Token'; // Replace with your actual OpenAI API token
 
     const url = 'https://api.openai.com/v1/chat/completions';
     const requestBody = {
@@ -45,9 +45,9 @@ const PackingList = () => {
     navigate('/itinerary', { state: { itinerary: response, travelers, location: destination, duration } });
   };
 
-  const dayRangeRegex = /^\d+\./gm;
+  // const dayRangeRegex = /^\d+\./gm;
 
-  const numbers = packingList.split(dayRangeRegex);
+  // const numbers = packingList.split(dayRangeRegex);
   
   return (
     <div className="App">
@@ -70,13 +70,18 @@ const PackingList = () => {
           <h3>Packing List</h3>
         </div>
 
-          {numbers.map((day, index) => (
+        <div className="day-container">
+        <p>{packingList}</p>
+        </div>
+  
+
+          {/* {numbers.map((day, index) => (
             day.trim() && (
               <div key={index} className="day-container">
                 <p>{day.trim()}</p>
               </div>
             )
-          ))}
+          ))} */}
 
         <div className="button-section">
           <Link to="/" className="main-button">Generate again</Link>
